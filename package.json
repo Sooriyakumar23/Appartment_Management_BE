@@ -1,0 +1,19 @@
+{
+  "name": "appartment_website_backend",
+  "version": "1.0.0",
+  "description": "Dynamic Website build to Manage Appartment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node controller.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.18.4",
+    "firebase-admin": "^13.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.11.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
