@@ -7,9 +7,11 @@ const {
   PRICE_RANGE,
 } = require("./enums");
 
+require('dotenv').config();
+
 const { ObjectId } = require("mongodb");
 const admin = require("firebase-admin");
-const serviceAccount = require("./appartment-management-5ddea-17958998ae73.json");
+const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
