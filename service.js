@@ -64,7 +64,7 @@ async function signUp(requestData) {
   return result;
 }
 
-async function getMainProperties(decoded, filters) {
+async function getMainProperties(decoded, district, price, type) {
   let isGetActiveOnly = true;
   if (decoded) {
     const userId = decoded.userId;
@@ -87,16 +87,16 @@ async function getMainProperties(decoded, filters) {
   const properties = [];
   let query = db.collection("c_property").where("referenceId", "==", null);
 
-  if (filters.districts) {
-    query = query.where("district", "in", filters.districts);
+  if (district) {
+    query = query.where("district", "==", district);
   }
 
-  if (filters.prices) {
-    query = query.where("price", "in", filters.prices);
+  if (price) {
+    query = query.where("price", "==", price);
   }
 
-  if (filters.types) {
-    query = query.where("type", "in", filters.types);
+  if (!isNaN(type)) {
+    query = query.where("type", "==", Number(type));
   }
 
   if (isGetActiveOnly) {
@@ -106,7 +106,7 @@ async function getMainProperties(decoded, filters) {
   const snapshot = await query.get();
 
   if (snapshot.empty) {
-    throw new Error("Getting Main Properties is Failed");
+    return properties;
   }
 
   snapshot.forEach((doc) => {
@@ -117,7 +117,67 @@ async function getMainProperties(decoded, filters) {
 }
 
 async function getSubPropertiesForPropertyId(propertyId, decoded) {
-  //TODO
+  const properties = { main: null, sub: [] };
+
+  let isActiveOnly = true;
+  if (decoded) {
+    const userId = decoded.userId;
+
+    const docSnapshot = await db
+      .collection("c_user")
+      .where("_id", "==", userId)
+      .get();
+
+    if (docSnapshot.empty) {
+      throw new Error(`User not found for userId: ${userId}`);
+    }
+
+    const user = docSnapshot.docs[0].data();
+    if (user) {
+      isActiveOnly = false;
+    }
+  }
+
+  let mainPropertySnapshot = db
+    .collection("c_property")
+    .where("_id", "==", propertyId)
+    .where("referenceId", "==", null);
+
+  if (isActiveOnly) {
+    mainPropertySnapshot.where("status", "in", [1]);
+  }
+
+  mainPropertySnapshot = await mainPropertySnapshot.get();
+
+  if (mainPropertySnapshot.empty) {
+    return properties;
+  }
+
+  const mainProperty = mainPropertySnapshot.docs[0].data();
+  properties["main"] = mainProperty;
+
+  let subPropertiesSnapshot = db
+    .collection("c_property")
+    .where("referenceId", "==", propertyId);
+
+  if (isActiveOnly) {
+    subPropertiesSnapshot.where("status", "in", [1]);
+  }
+  subPropertiesSnapshot = await subPropertiesSnapshot.get();
+
+  if (subPropertiesSnapshot.empty) {
+    return properties;
+  }
+
+  const subProperties = [];
+
+  subPropertiesSnapshot.docs.forEach((doc) => {
+    const data = doc.data();
+    subProperties.push(data);
+  });
+
+  properties["sub"] = subProperties;
+  return properties;
 }
 
 async function createProperty(property) {
@@ -125,7 +185,7 @@ async function createProperty(property) {
   const docRef = db.collection("c_property").doc(id);
   const result = {
     _id: id,
-    referenceId: property.referenceId,
+    referenceId: property.referenceId ? property.referenceId : null,
     userId: property.userId,
     propertyImageUrl: property.propertyImageUrl,
     address: property.address,

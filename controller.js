@@ -9,18 +9,21 @@ const {
   changePropertyCheckinCheckoutTime,
   createPropertyImage,
 } = require("./service");
+const { ROLE } = require("./enums");
 
 const { validateToken } = require("./auth");
 
 const axios = require("axios");
 const express = require("express");
-const { ROLE } = require("./enums");
+const cors = require('cors');
+
 const app = express();
 
 const PORT = 8000;
 const IMGUR_CLIENT_ID = "67c83e5be3c6027";
 const IMGUR_CLIENT_SECRET = "3d894a3ae238de145ecc33b9ffe560951ffabbb2";
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/health", (req, res) => {
@@ -67,17 +70,16 @@ app.post("/sign-up", async (req, res) => {
 });
 
 app.get("/get-main-properties", async (req, res) => {
-  const requestData = req.body;
+  const { district, price, type } = req.query;
+  
   const token = req.headers.Authorization;
-  const filters = requestData.filters;
-
   let decoded = null;
   if (token) {
     decoded = validateToken(token, requestData.userId);
   }
 
   try {
-    result = await getMainProperties(decoded, filters);
+    result = await getMainProperties(decoded, district, price, type);
     return res.status(200).json({ data: result });
   } catch (error) {
     console.error(error);
@@ -86,9 +88,8 @@ app.get("/get-main-properties", async (req, res) => {
 });
 
 app.get("/get-sub-properties-for-propertyId", async (req, res) => {
-  const requestData = req.body;
+  const { propertyId } = req.query;
   const token = req.headers.Authorization;
-  const propertyId = requestData.propertyId;
 
   let decoded = null;
   if (token) {
@@ -187,7 +188,7 @@ app.post("/upload-property-image", async (req, res) => {
   }
 
   try {
-    validateToken(token, userId);
+    // validateToken(token, userId);
     const response = await axios.post(
       "https://api.imgur.com/3/image",
       {
