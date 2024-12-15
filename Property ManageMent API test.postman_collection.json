@@ -494,7 +494,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000/get-main-properties?district=Jaffna&price=500000 - 5000000&type=1",
+					"raw": "http://localhost:8000/get-main-properties?district=Jaffna&type=1&minPrice=2000&maxPrice=10000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -509,19 +509,23 @@
 							"value": "Jaffna"
 						},
 						{
-							"key": "price",
-							"value": "500000 - 5000000"
-						},
-						{
 							"key": "type",
 							"value": "1"
+						},
+						{
+							"key": "minPrice",
+							"value": "2000"
+						},
+						{
+							"key": "maxPrice",
+							"value": "10000"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "SUCCESS - 1: No filters",
+					"name": "SUCCESS - 1 : no filters",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
@@ -587,237 +591,27 @@
 							"port": "8000",
 							"path": [
 								"get-main-properties"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "*"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "3234"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"ca2-Aafed60CyCDLeAzYmrA+cXMunCg\""
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 14 Dec 2024 08:03:27 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f2a0259f7f0d847965b\",\n            \"userId\": \"67540acae48e17571ebdf478\",\n            \"propertyImageUrl\": \"https://i.imgur.com/2fNiptJ.jpeg\",\n            \"address\": \"No. 1, Stanley Road, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Abi Villas\",\n            \"count\": 10,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"area\": \"100m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf478\",\n            \"createdAt\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"price\": \"0 - 5000\",\n            \"type\": 1,\n            \"viewCount\": 3,\n            \"referenceId\": null,\n            \"status\": 1\n        },\n        {\n            \"_id\": \"67542f8f0259f7f0d847965c\",\n            \"userId\": \"67540acae48e17571ebdf479\",\n            \"address\": \"No. 1, Beach Road, Colombo\",\n            \"district\": \"Colombo\",\n            \"city\": \"Colombo 3\",\n            \"name\": \"Oceanview Residence\",\n            \"count\": 5,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"80m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf479\",\n            \"createdAt\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fproperty%2F&psig=AOvVaw1m7VB0su60g2r-FSonJP49&ust=1733657257424000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKCBgdvGlYoDFQAAAAAdAAAAABAE\",\n            \"price\": \"0 - 5000\",\n            \"type\": 1,\n            \"referenceId\": null\n        },\n        {\n            \"_id\": \"675430330259f7f0d8479666\",\n            \"userId\": \"67540acae48e17571ebdf487\",\n            \"address\": \"No. 22, Palm Grove, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Palm Grove House\",\n            \"count\": 11,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"95m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf487\",\n            \"createdAt\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Dproperty&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAZ\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 3,\n            \"referenceId\": null\n        },\n        {\n            \"_id\": \"6754303e0259f7f0d8479667\",\n            \"userId\": \"67540acae48e17571ebdf488\",\n            \"address\": \"No. 14, Coastal Road, Trincomalee\",\n            \"district\": \"Trincomalee\",\n            \"city\": \"Trincomalee City\",\n            \"name\": \"Coastal Villa\",\n            \"count\": 6,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"SALE\",\n            \"area\": \"110m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf488\",\n            \"createdAt\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rocketmortgage.com%2Flearn%2Fhow-to-find-investment-properties&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAh\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 4,\n            \"referenceId\": null,\n            \"status\": 1\n        }\n    ]\n}"
-				},
-				{
-					"name": "SUCCESS - 2 : price filter only",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Origin",
-								"value": "http://localhost:5173"
-							},
-							{
-								"key": "Referer",
-								"value": "http://localhost:5173/"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-site"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/get-main-properties?price=500000 - 5000000",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"get-main-properties"
-							],
-							"query": [
-								{
-									"key": "price",
-									"value": "500000 - 5000000"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "*"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "1744"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"6d0-4pYoYrVUsE+rG74zKq7unx+MjFE\""
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 14 Dec 2024 08:07:31 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"675430330259f7f0d8479666\",\n            \"userId\": \"67540acae48e17571ebdf487\",\n            \"address\": \"No. 22, Palm Grove, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Palm Grove House\",\n            \"count\": 11,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"95m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf487\",\n            \"createdAt\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Dproperty&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAZ\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 3,\n            \"referenceId\": null\n        },\n        {\n            \"_id\": \"6754303e0259f7f0d8479667\",\n            \"userId\": \"67540acae48e17571ebdf488\",\n            \"address\": \"No. 14, Coastal Road, Trincomalee\",\n            \"district\": \"Trincomalee\",\n            \"city\": \"Trincomalee City\",\n            \"name\": \"Coastal Villa\",\n            \"count\": 6,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"SALE\",\n            \"area\": \"110m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf488\",\n            \"createdAt\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rocketmortgage.com%2Flearn%2Fhow-to-find-investment-properties&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAh\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 4,\n            \"referenceId\": null,\n            \"status\": 1\n        }\n    ]\n}"
-				},
-				{
-					"name": "SUCCESS - 3 : district filter only",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Origin",
-								"value": "http://localhost:5173"
-							},
-							{
-								"key": "Referer",
-								"value": "http://localhost:5173/"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-site"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/get-main-properties?district=Trincomalee",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"get-main-properties"
 							],
 							"query": [
 								{
 									"key": "district",
-									"value": "Trincomalee"
+									"value": "Jaffna",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "5001",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "40000",
+									"disabled": true
 								}
 							]
 						}
@@ -840,15 +634,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "898"
+							"value": "2862"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"382-CC0ppZJJtglThErZ/7oHWO0tCX4\""
+							"value": "W/\"b2e-lQlMhoieKDzTDrvh/DgrKEw7Yn4\""
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 14 Dec 2024 08:08:14 GMT"
+							"value": "Sun, 15 Dec 2024 06:20:46 GMT"
 						},
 						{
 							"key": "Connection",
@@ -860,10 +654,10 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"6754303e0259f7f0d8479667\",\n            \"userId\": \"67540acae48e17571ebdf488\",\n            \"address\": \"No. 14, Coastal Road, Trincomalee\",\n            \"district\": \"Trincomalee\",\n            \"city\": \"Trincomalee City\",\n            \"name\": \"Coastal Villa\",\n            \"count\": 6,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"SALE\",\n            \"area\": \"110m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf488\",\n            \"createdAt\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rocketmortgage.com%2Flearn%2Fhow-to-find-investment-properties&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAh\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 4,\n            \"referenceId\": null,\n            \"status\": 1\n        }\n    ]\n}"
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f2a0259f7f0d847965b\",\n            \"userId\": \"67540acae48e17571ebdf478\",\n            \"address\": \"No. 1, Stanley Road, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Abi Villas\",\n            \"count\": 10,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"area\": \"100m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf478\",\n            \"createdAt\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"viewCount\": 3,\n            \"referenceId\": null,\n            \"status\": 1,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/two-man-and-woman-on-buildings-balcony-during-daytime-hK-ZADiFGvk\",\n            \"price\": 4000,\n            \"bedroomCount\": 15\n        },\n        {\n            \"_id\": \"67542f8f0259f7f0d847965c\",\n            \"userId\": \"67540acae48e17571ebdf479\",\n            \"address\": \"No. 1, Beach Road, Colombo\",\n            \"district\": \"Colombo\",\n            \"city\": \"Colombo 3\",\n            \"name\": \"Oceanview Residence\",\n            \"count\": 5,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"80m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf479\",\n            \"createdAt\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"referenceId\": null,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/a-couple-of-gas-pumps-sitting-in-front-of-a-building-72G89VBq38k\",\n            \"price\": 5000,\n            \"bedroomCount\": 1\n        },\n        {\n            \"_id\": \"675430330259f7f0d8479666\",\n            \"userId\": \"67540acae48e17571ebdf487\",\n            \"address\": \"No. 22, Palm Grove, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Palm Grove House\",\n            \"count\": 11,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"95m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf487\",\n            \"createdAt\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 3,\n            \"referenceId\": null,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/white-house-under-maple-trees-1ddol8rgUH8\",\n            \"price\": 50000,\n            \"bedroomCount\": 10\n        },\n        {\n            \"_id\": \"6754303e0259f7f0d8479667\",\n            \"userId\": \"67540acae48e17571ebdf488\",\n            \"address\": \"No. 14, Coastal Road, Trincomalee\",\n            \"district\": \"Trincomalee\",\n            \"city\": \"Trincomalee City\",\n            \"name\": \"Coastal Villa\",\n            \"count\": 6,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"SALE\",\n            \"area\": \"110m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf488\",\n            \"createdAt\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 4,\n            \"referenceId\": null,\n            \"status\": 1,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/3d-render-modern-building-exterior-2MA8dFvOMec\",\n            \"price\": 500000,\n            \"bedroomCount\": 1\n        }\n    ]\n}"
 				},
 				{
-					"name": "SUCCESS - 4 : type filter only",
+					"name": "SUCCESS - 2 : minPrice, maxPrice",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
@@ -921,7 +715,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/get-main-properties?type=4",
+							"raw": "http://localhost:8000/get-main-properties?minPrice=5000&maxPrice=10000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -937,13 +731,279 @@
 									"disabled": true
 								},
 								{
-									"key": "price",
-									"value": "500000 - 5000000",
+									"key": "type",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "5000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "729"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d9-W1MghcdEFGmiICWIecMqHpryDqs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Dec 2024 06:21:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f8f0259f7f0d847965c\",\n            \"userId\": \"67540acae48e17571ebdf479\",\n            \"address\": \"No. 1, Beach Road, Colombo\",\n            \"district\": \"Colombo\",\n            \"city\": \"Colombo 3\",\n            \"name\": \"Oceanview Residence\",\n            \"count\": 5,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"80m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf479\",\n            \"createdAt\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"referenceId\": null,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/a-couple-of-gas-pumps-sitting-in-front-of-a-building-72G89VBq38k\",\n            \"price\": 5000,\n            \"bedroomCount\": 1\n        }\n    ]\n}"
+				},
+				{
+					"name": "SUCCESS - 3 : district",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:5173"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:5173/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/get-main-properties?district=Jaffna",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-main-properties"
+							],
+							"query": [
+								{
+									"key": "district",
+									"value": "Jaffna"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "5000",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1427"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"593-LfTaXfSaiRIcEMHZEzgKFsUN5QY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Dec 2024 06:22:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f2a0259f7f0d847965b\",\n            \"userId\": \"67540acae48e17571ebdf478\",\n            \"address\": \"No. 1, Stanley Road, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Abi Villas\",\n            \"count\": 10,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"area\": \"100m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf478\",\n            \"createdAt\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"viewCount\": 3,\n            \"referenceId\": null,\n            \"status\": 1,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/two-man-and-woman-on-buildings-balcony-during-daytime-hK-ZADiFGvk\",\n            \"price\": 4000,\n            \"bedroomCount\": 15\n        },\n        {\n            \"_id\": \"675430330259f7f0d8479666\",\n            \"userId\": \"67540acae48e17571ebdf487\",\n            \"address\": \"No. 22, Palm Grove, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Palm Grove House\",\n            \"count\": 11,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"95m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf487\",\n            \"createdAt\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 3,\n            \"referenceId\": null,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/white-house-under-maple-trees-1ddol8rgUH8\",\n            \"price\": 50000,\n            \"bedroomCount\": 10\n        }\n    ]\n}"
+				},
+				{
+					"name": "SUCCESS - 4 : type",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:5173"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:5173/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/get-main-properties?type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-main-properties"
+							],
+							"query": [
+								{
+									"key": "district",
+									"value": "Jaffna",
 									"disabled": true
 								},
 								{
 									"key": "type",
-									"value": "4"
+									"value": "1"
+								},
+								{
+									"key": "minPrice",
+									"value": "5000",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000",
+									"disabled": true
 								}
 							]
 						}
@@ -966,15 +1026,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "898"
+							"value": "1454"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"382-CC0ppZJJtglThErZ/7oHWO0tCX4\""
+							"value": "W/\"5ae-ZvZPGVBzvWpJDN1ukbgDJXlUMA8\""
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 14 Dec 2024 11:44:52 GMT"
+							"value": "Sun, 15 Dec 2024 06:23:44 GMT"
 						},
 						{
 							"key": "Connection",
@@ -986,10 +1046,10 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"6754303e0259f7f0d8479667\",\n            \"userId\": \"67540acae48e17571ebdf488\",\n            \"address\": \"No. 14, Coastal Road, Trincomalee\",\n            \"district\": \"Trincomalee\",\n            \"city\": \"Trincomalee City\",\n            \"name\": \"Coastal Villa\",\n            \"count\": 6,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"SALE\",\n            \"area\": \"110m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf488\",\n            \"createdAt\": {\n                \"_seconds\": 1733570622,\n                \"_nanoseconds\": 147000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rocketmortgage.com%2Flearn%2Fhow-to-find-investment-properties&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAh\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 4,\n            \"referenceId\": null,\n            \"status\": 1\n        }\n    ]\n}"
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f2a0259f7f0d847965b\",\n            \"userId\": \"67540acae48e17571ebdf478\",\n            \"address\": \"No. 1, Stanley Road, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Abi Villas\",\n            \"count\": 10,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"area\": \"100m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf478\",\n            \"createdAt\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"viewCount\": 3,\n            \"referenceId\": null,\n            \"status\": 1,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/two-man-and-woman-on-buildings-balcony-during-daytime-hK-ZADiFGvk\",\n            \"price\": 4000,\n            \"bedroomCount\": 15\n        },\n        {\n            \"_id\": \"67542f8f0259f7f0d847965c\",\n            \"userId\": \"67540acae48e17571ebdf479\",\n            \"address\": \"No. 1, Beach Road, Colombo\",\n            \"district\": \"Colombo\",\n            \"city\": \"Colombo 3\",\n            \"name\": \"Oceanview Residence\",\n            \"count\": 5,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"80m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf479\",\n            \"createdAt\": {\n                \"_seconds\": 1733570447,\n                \"_nanoseconds\": 802000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"referenceId\": null,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/a-couple-of-gas-pumps-sitting-in-front-of-a-building-72G89VBq38k\",\n            \"price\": 5000,\n            \"bedroomCount\": 1\n        }\n    ]\n}"
 				},
 				{
-					"name": "SUCCESS - 5 : price, district and type filters [DATA]",
+					"name": "SUCCESS - 5 : district, type, minPrice, maxPrice : No DATA",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
@@ -1047,7 +1107,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/get-main-properties?district=Jaffna&price=500000 - 5000000&type=3",
+							"raw": "http://localhost:8000/get-main-properties?district=Jaffna&type=1&minPrice=5000&maxPrice=10000",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1060,138 +1120,18 @@
 								{
 									"key": "district",
 									"value": "Jaffna"
-								},
-								{
-									"key": "price",
-									"value": "500000 - 5000000"
-								},
-								{
-									"key": "type",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "*"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "856"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"358-Sfw4B/8BWJx95GsiLL9O3wyNhCc\""
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 14 Dec 2024 11:45:52 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"675430330259f7f0d8479666\",\n            \"userId\": \"67540acae48e17571ebdf487\",\n            \"address\": \"No. 22, Palm Grove, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Palm Grove House\",\n            \"count\": 11,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"status\": 1,\n            \"area\": \"95m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf487\",\n            \"createdAt\": {\n                \"_seconds\": 1733570611,\n                \"_nanoseconds\": 421000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"propertyImageUrl\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Dproperty&psig=AOvVaw1NeEx3K8yUtUEyvE2IW_3o&ust=1733657801381000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCYi93IlYoDFQAAAAAdAAAAABAZ\",\n            \"price\": \"500000 - 5000000\",\n            \"type\": 3,\n            \"referenceId\": null\n        }\n    ]\n}"
-				},
-				{
-					"name": "SUCCESS - 6 : price. district and type filters [No DATA]",
-					"originalRequest": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/plain, */*"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US,en;q=0.9"
-							},
-							{
-								"key": "Connection",
-								"value": "keep-alive"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Origin",
-								"value": "http://localhost:5173"
-							},
-							{
-								"key": "Referer",
-								"value": "http://localhost:5173/"
-							},
-							{
-								"key": "Sec-Fetch-Dest",
-								"value": "empty"
-							},
-							{
-								"key": "Sec-Fetch-Mode",
-								"value": "cors"
-							},
-							{
-								"key": "Sec-Fetch-Site",
-								"value": "same-site"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
-							},
-							{
-								"key": "sec-ch-ua",
-								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
-							},
-							{
-								"key": "sec-ch-ua-mobile",
-								"value": "?0"
-							},
-							{
-								"key": "sec-ch-ua-platform",
-								"value": "\"Windows\""
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/get-main-properties?district=Jaffna&price=500000 - 5000000&type=1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"get-main-properties"
-							],
-							"query": [
-								{
-									"key": "district",
-									"value": "Jaffna"
-								},
-								{
-									"key": "price",
-									"value": "500000 - 5000000"
 								},
 								{
 									"key": "type",
 									"value": "1"
+								},
+								{
+									"key": "minPrice",
+									"value": "5000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000"
 								}
 							]
 						}
@@ -1222,7 +1162,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 14 Dec 2024 11:47:06 GMT"
+							"value": "Sun, 15 Dec 2024 06:27:56 GMT"
 						},
 						{
 							"key": "Connection",
@@ -1235,6 +1175,134 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"data\": []\n}"
+				},
+				{
+					"name": "SUCCESS - 6 : district, type, minPrice, maxPrice : DATA",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:5173"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:5173/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"130\", \"Opera\";v=\"115\", \"Not?A_Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/get-main-properties?district=Jaffna&type=1&minPrice=2000&maxPrice=10000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get-main-properties"
+							],
+							"query": [
+								{
+									"key": "district",
+									"value": "Jaffna"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "minPrice",
+									"value": "2000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "10000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "735"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2df-lrpTG/7mf1QmbBzJVuFb4bnIpNQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Dec 2024 06:28:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"67542f2a0259f7f0d847965b\",\n            \"userId\": \"67540acae48e17571ebdf478\",\n            \"address\": \"No. 1, Stanley Road, Jaffna\",\n            \"district\": \"Jaffna\",\n            \"city\": \"Nallur\",\n            \"name\": \"Abi Villas\",\n            \"count\": 10,\n            \"bathroomType\": \"ATTACHED\",\n            \"bathroomCount\": 2,\n            \"rentOrSale\": \"RENT\",\n            \"area\": \"100m2\",\n            \"checkInDateTime\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"checkOutDateTime\": {\n                \"_seconds\": 7226582400,\n                \"_nanoseconds\": 0\n            },\n            \"createdBy\": \"67540acae48e17571ebdf478\",\n            \"createdAt\": {\n                \"_seconds\": 1733570346,\n                \"_nanoseconds\": 218000000\n            },\n            \"lastUpdatedBy\": null,\n            \"lastUpdatedAt\": null,\n            \"type\": 1,\n            \"viewCount\": 3,\n            \"referenceId\": null,\n            \"status\": 1,\n            \"propertyImageUrl\": \"https://unsplash.com/photos/two-man-and-woman-on-buildings-balcony-during-daytime-hK-ZADiFGvk\",\n            \"price\": 4000,\n            \"bedroomCount\": 15\n        }\n    ]\n}"
 				}
 			]
 		},

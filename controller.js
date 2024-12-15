@@ -70,7 +70,7 @@ app.post("/sign-up", async (req, res) => {
 });
 
 app.get("/get-main-properties", async (req, res) => {
-  const { district, price, type } = req.query;
+  const { district, type, minPrice, maxPrice } = req.query;
   
   const token = req.headers.Authorization;
   let decoded = null;
@@ -79,7 +79,7 @@ app.get("/get-main-properties", async (req, res) => {
   }
 
   try {
-    result = await getMainProperties(decoded, district, price, type);
+    result = await getMainProperties(decoded, district, type, minPrice, maxPrice);
     return res.status(200).json({ data: result });
   } catch (error) {
     console.error(error);

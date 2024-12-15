@@ -7,10 +7,11 @@ const {
   PRICE_RANGE,
 } = require("./enums");
 
-require('dotenv').config();
+require("dotenv").config();
 
 const { ObjectId } = require("mongodb");
 const admin = require("firebase-admin");
+
 const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
 
 admin.initializeApp({
@@ -66,7 +67,7 @@ async function signUp(requestData) {
   return result;
 }
 
-async function getMainProperties(decoded, district, price, type) {
+async function getMainProperties(decoded, district, type, minPrice, maxPrice) {
   let isGetActiveOnly = true;
   if (decoded) {
     const userId = decoded.userId;
@@ -93,8 +94,12 @@ async function getMainProperties(decoded, district, price, type) {
     query = query.where("district", "==", district);
   }
 
-  if (price) {
-    query = query.where("price", "==", price);
+  if (!isNaN(minPrice)) {
+    query = query.where("price", ">=", Number(minPrice));
+  }
+
+  if (!isNaN(maxPrice)) {
+    query = query.where("price", "<=", Number(maxPrice));
   }
 
   if (!isNaN(type)) {
@@ -193,10 +198,11 @@ async function createProperty(property) {
     address: property.address,
     district: property.district,
     city: property.city,
-    price: PRICE_RANGE[property.price],
+    price: property.price,
     name: property.name,
     count: property.count,
     type: property.type,
+    bedroomCount: property.bedroomCount,
     bathroomType: BATHROOM_TYPE[property.bathroomType],
     bathroomCount: property.bathroomCount,
     rentOrSale: RENT_OR_SALE[property.rentOrSale],
@@ -224,13 +230,14 @@ async function editProperty(property) {
     address: property.address,
     district: property.district,
     city: property.city,
-    price: PRICE_RANGE[property.price],
+    price: property.price,
     name: property.name,
     count: property.count,
     type: property.type,
-    bathroomType: PROPERTY_STATUS[property.bathroomType],
+    bedroomCount: property.bedroomCount,
+    bathroomType: BATHROOM_TYPE[property.bathroomType],
     bathroomCount: property.bathroomCount,
-    rentOrSale: PROPERTY_STATUS[property.rentOrSale],
+    rentOrSale: RENT_OR_SALE[property.rentOrSale],
     status: PROPERTY_STATUS[property.status],
     area: property.area,
     checkInDateTime: new Date(),
