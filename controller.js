@@ -26,7 +26,7 @@ const IMGUR_CLIENT_SECRET = "3d894a3ae238de145ecc33b9ffe560951ffabbb2";
 app.use(cors());
 app.use(express.json());
 
-app.get("/health", (req, res) => {
+app.get("/", (req, res) => {
   const healthMessage =
     "Your Property Management Backend is up and running..... :)";
   console.log(healthMessage);
